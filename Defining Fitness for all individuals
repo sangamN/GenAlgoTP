@@ -1,0 +1,7 @@
+# Say the function which needs to be optimised is 'function'
+
+def fitness(pop,function):
+    fit =[]
+    for i in range(ind):
+        fit.append(function(pop))
+    return fit
