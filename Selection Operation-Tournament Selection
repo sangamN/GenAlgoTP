@@ -1,0 +1,15 @@
+# Here the selection operation is done on the basis of basic if statement
+# That need to be done on the basis of fitness values
+
+# Here tournament selection is being done
+
+def selection(pop,function):
+    selected=[]
+    for individual in range(ind):
+        a = random.randint(0,ind)
+        b = random.randint(0,ind)
+        if f(pop[a])>f(pop[b]):    #Say if the Function is to be maximized
+            selected.append(a)
+        else:
+            selected.append(b)
+    return selected
