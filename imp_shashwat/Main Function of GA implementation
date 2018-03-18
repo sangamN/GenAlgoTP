@@ -1,0 +1,10 @@
+def Geneticalgo(function,xu,xl):
+    #First step is to have a random popolation say of size 'ind' individuals
+    
+    Pop = generatePop(xl,xu)
+    fmax = -1
+    while(fmax<=0.95):
+        final = mutation(crossover(Pop))
+        maxfit = max(fit(final,function))
+        fmax=maxfit
+    print(fmax)
