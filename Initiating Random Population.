@@ -1,8 +1,0 @@
-#Generating a random population of size say 1000 individuals in a range specified by input say xl, xu.
-ind =1000
-
-def generatePop(xl,xu):
-    pop = []
-    for individual in range(ind):
-        pop.append(random.uniform(xl,xu))
-    return pop
