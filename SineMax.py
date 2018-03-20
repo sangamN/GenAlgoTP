@@ -125,36 +125,27 @@ def mutationfunc(g):                      #This function determines the number o
     
     return output
 
-def mutation(g):                          #This is the least significant bit mutation type with probability given in the end
+def mutation(g):                          #This is the creep mutation type with probability given in the end
     mut =[]  
     a = random.randint(0,ind-1)
-    value = g[a]
+    value = binarytoint(g)
     prob = random.uniform(0,1)
-    for i in range(0,l):
-        if i==(l-1):
-            if prob<=pm:
-                if value[l-1] == 0:
-                       mut.append('1')
+    c = random.randint(0,1)
+    for i in range(ind):
+        if prob<=pm:
+            if i==a:
+                if c==0:
+                    mut.append(value[i]-1)
                 else:
-                       mut.append('0')
+                    mut.append(value[i]+1)
             else:
-                if value[l-1] == 0:
-                       mut.append('0')
-                else:
-                       mut.append('1')
+                mut.append(value[i])
         else:
             mut.append(value[i])
- 
-    output =[]
- 
-    mut = ''.join(mut)
-    
-    for i in range(ind):
-        if i==a:
-           output.append(mut)
-        else:
-           output.append(g[i])
-    return output
+
+    binmut = binary(mut)
+
+    return binmut
 
 def binarytoint(h):                           #This is a function to convert the binary to the corresponding decimal value
     output =[]
@@ -177,7 +168,7 @@ def Geneticalgo(xu,xl):                       # This is the main function which 
 
     iteration = 1
     fmax = -1
-    while(fmax<=0.9999 and iteration<=100):
+    while(fmax<=0.9999):
         print("The Iteration number is", iteration)
         c = selection(i)
         print("The selected values are") 
@@ -221,7 +212,7 @@ def Geneticalgo(xu,xl):                       # This is the main function which 
 # say the length of the bit used is 8
 
 l=7                      #When changing this length remenber to change the value in the definition of binary() also.
-pm = 0.8
+pm = 0.5
 pc = 0.8
 xl =0
 xu =2*3.14
